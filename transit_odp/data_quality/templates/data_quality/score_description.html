@@ -1,26 +1,20 @@
 {% extends "page.html" %}
 {% load i18n %}
 {% load breadcrumbs %}
-
 {% block title_tag %}
   {% trans 'Bus operator requirements' %}
 {% endblock %}
-
 {% block breadcrumb.content %}
   {{ block.super }}
   {% breadcrumb_url 'Guidance' 'guidance:operators-home' host hosts.publish %}
   {% breadcrumb 'Score description' %}
 {% endblock %}
-
 {% block content %}
-
   <div class="govuk-width-container">
     <main class="govuk-main-wrapper">
-
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
           <h1 class="govuk-heading-xl">{% trans "Data Quality Score" %}</h1>
-
           <h2 class="govuk-heading-m">{% trans "Data Quality" %}</h2>
           <p class="govuk-body">
             {% blocktrans %}
@@ -29,7 +23,6 @@
             for Transport as an indicator for timetables data quality.
             {% endblocktrans %}
           </p>
-
           <h2 class="govuk-heading-m">{% trans "Critical observations" %}</h2>
           <p class="govuk-body">
             {% blocktrans %}
@@ -41,7 +34,6 @@
             operator can suppress the observation.
             {% endblocktrans %}
           </p>
-
           <h2 class="govuk-heading-m">{% trans "Methods for measurement" %}</h2>
           <p class="govuk-body">
             {% blocktrans %}
@@ -51,7 +43,6 @@
             following weightings:
             {% endblocktrans %}
           </p>
-
           <table class="govuk-table">
             <thead class="govuk-table__head">
               <tr class="govuk-table__row">
@@ -61,15 +52,14 @@
             </thead>
             <tbody class="govuk-table__body">
               {% for o in observations %}
-              <tr class="govuk-table__row">
-                {% widthratio o.weighting 1 100 as percentage %}
-                <td class="govuk-table__cell">{{percentage}}%</td>
-                <td class="govuk-table__cell">{{o.title}}</td>
-              </tr>
+                <tr class="govuk-table__row">
+                  {% widthratio o.weighting 1 100 as percentage %}
+                  <td class="govuk-table__cell">{{ percentage }}%</td>
+                  <td class="govuk-table__cell">{{ o.title }}</td>
+                </tr>
               {% endfor %}
             </tbody>
           </table>
-
           <h2 class="govuk-heading-m">{% trans "Example" %}</h2>
           <p class="govuk-body">
             {% blocktrans %}
@@ -81,7 +71,6 @@
             These contribution are summed to give the final data quality score.
             {% endblocktrans %}
           </p>
-
           <h2 class="govuk-heading-m">{% trans "Thresholds" %}</h2>
           <p class="govuk-body">
             {% blocktrans %}
@@ -93,11 +82,11 @@
           </p>
           <table class="govuk-table">
             <thead class="govuk-table__head">
-            <tr class="govuk-table__row">
-              <th scope="col" class="govuk-table__header"></th>
-              <th scope="col" class="govuk-table__header govuk-!-width-full"></th>
-            </tr>
-          </thead>
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header"></th>
+                <th scope="col" class="govuk-table__header govuk-!-width-full"></th>
+              </tr>
+            </thead>
             <tbody class="govuk-table__body">
               <tr class="govuk-table__row">
                 <td class="govuk-table__cell">
@@ -120,7 +109,6 @@
             </tbody>
           </table>
         </div>
-    </main>
-  </div>
-
-{% endblock %}
+      </main>
+    </div>
+  {% endblock %}

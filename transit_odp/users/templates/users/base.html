@@ -1,9 +1,7 @@
 {% extends "page.html" %}
-
 {% load i18n %}
 {% load static %}
 {% load breadcrumbs %}
-
 {% block breadcrumb.content %}
   {{ block.super }}
   {% if user_base_no_link %}
@@ -12,16 +10,13 @@
     {% breadcrumb_url 'My account' 'users:home' host host.name %}
   {% endif %}
 {% endblock %}
-
 {% block content %}
   <div class="govuk-grid-row">
-    {% block above_heading %}
-    {% endblock %}
+    {% block above_heading %}{% endblock %}
     <div class="govuk-grid-column-two-thirds">
       {% block content_heading %}
         <h1 class="govuk-heading-xl">
-          {% block title_text %}
-          {% endblock %}
+          {% block title_text %}{% endblock %}
         </h1>
       {% endblock %}
       {% block subtitle %}
@@ -32,17 +27,13 @@
       {% endblock %}
     </div>
   </div>
-
   <div class="govuk-grid-row govuk-!-margin-top-4">
     <div class="govuk-grid-column-two-thirds">
       {% block inner %}{% endblock %}
     </div>
-
     <div class="govuk-grid-column-one-third">
       {% block inner_secondary %}{% endblock %}
     </div>
   </div>
-
-  {% block extra_content %}
-  {% endblock %}
+  {% block extra_content %}{% endblock %}
 {% endblock %}
