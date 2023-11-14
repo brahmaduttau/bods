@@ -1,21 +1,17 @@
 {% extends 'browse/base/search.html' %}
-
 {% load i18n %}
 {% load breadcrumbs %}
-
 {% block title_tag %}
   {% trans 'Browse Fares Data' %}
 {% endblock %}
-
 {% block breadcrumb.content %}
   {{ block.super }}
   {% breadcrumb_url 'Browse' 'select-data' host hosts.data %}
   {% breadcrumb 'Fares Data' %}
 {% endblock %}
-
 {% block full_width_content %}
   <form>
     {% with title="Fares data" description="Search for specific operator or location" placeholder="Search by NOC, Location, Operator or Description" %}
       {% include "browse/snippets/search_banner.html" %}
     {% endwith %}
-{% endblock %}
+  {% endblock %}
